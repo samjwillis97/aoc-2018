@@ -1,4 +1,6 @@
 input.txt
 .direnv/
 out/
+build/
+dist/
 node_modules/
