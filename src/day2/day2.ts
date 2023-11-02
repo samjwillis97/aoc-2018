@@ -20,10 +20,27 @@ export function part1(input: string[]) {
 }
 
 export function part2(input: string[]) {
-  const stringLength = input[0].length
-  input.forEach((id) => {
-
+  let result = ''
+  input.some((id1) => {
+    input.some((id2) => {
+      let mismatchCount = 0
+      let mismatchIndex = 0
+      id1.split('').some((char, index) => {
+        if (char !== id2[index]) {
+          mismatchCount += 1
+          mismatchIndex = index
+        }
+        if (mismatchCount > 1) return true
+      })
+      if (mismatchCount === 1) {
+        result = id2.slice(0, mismatchIndex) + id2.slice(mismatchIndex + 1, id2.length)
+        return true
+      }
+    })
+    if (result) return true
   })
+
+return result
 }
     // So this just creates an array of 0 -> stringLength lol
     // [...Array(stringLength).keys()]
