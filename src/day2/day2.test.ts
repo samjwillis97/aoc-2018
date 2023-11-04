@@ -36,4 +36,5 @@ test('Day 2 Part 2 Demo', () => {
 test('Day 2 Part 2 Real', () => {
   const input = readInputFile(2)
   const result = part2(input)
+  expect(result).toBe('fonbwmjquwtapeyzikghtvdxl')
 })
